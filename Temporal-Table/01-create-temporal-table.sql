@@ -64,12 +64,11 @@ GO
 GO
 
 -- ตรวจสอบว่า Temporal Table ถูกสร้างถูกต้อง
-SELECT 
-    t1.name AS TableName,
-    t1.temporal_type_desc AS TemporalType,
-    t2.name AS HistoryTableName
+SELECT
+     t1.name AS TableName
+,    t1.temporal_type_desc AS TemporalType
+,    t2.name AS HistoryTableName
 FROM sys.tables t1
 LEFT JOIN sys.tables t2 ON t1.history_table_id = t2.object_id
 WHERE t1.name = 'CustomerHistory'
-  AND SCHEMA_NAME(t1.schema_id) = 'dbo';
-GO
+  AND SCHEMA_NAME(t1.schema_id) = 'dbo'

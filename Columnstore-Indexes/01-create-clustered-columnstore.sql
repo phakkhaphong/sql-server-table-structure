@@ -110,13 +110,12 @@ GO
 GO
 
 -- แสดงจำนวนแถว
-SELECT 
-    COUNT(*) AS TotalRows,
-    COUNT(DISTINCT SalesOrderID) AS UniqueSalesOrders,
-    COUNT(DISTINCT ProductID) AS UniqueProducts,
-    COUNT(DISTINCT CustomerID) AS UniqueCustomers
-FROM dbo.FactSales_CCI;
-GO
+SELECT
+     COUNT(*) AS TotalRows
+,    COUNT(DISTINCT SalesOrderID) AS UniqueSalesOrders
+,    COUNT(DISTINCT ProductID) AS UniqueProducts
+,    COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM dbo.FactSales_CCI
 
 -- =============================================
 -- ขั้นตอนที่ 4: ตรวจสอบ Columnstore State
