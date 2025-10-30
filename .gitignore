@@ -1,0 +1,46 @@
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# SQL Server files
+*.bak
+*.ldf
+*.mdf
+*.ndf
+*.bak
+*.trn
+*.diff
+*.audit
+
+# Backup files
+*.sql.bak
+*.sqlbackup
+*_backup.sql
+*_old.sql
+
+# Log files
+*.log
+*.log.*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp files
+*.tmp
+*.temp
+~$*
+
+# Personal notes
+Notes.md
+TODO.md
+Personal/
+
