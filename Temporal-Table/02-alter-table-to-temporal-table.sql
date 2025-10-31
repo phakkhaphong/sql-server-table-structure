@@ -44,21 +44,18 @@ GO
 -- ขั้นตอนที่ 1: เพิ่มคอลัมน์ ValidFrom และ ValidTo
 
 ALTER TABLE Person.Person
-ADD ValidFrom DATETIME2 GENERATED ALWAYS AS ROW START HIDDEN NOT NULL
+ADD 
+    ValidFrom DATETIME2 GENERATED ALWAYS AS ROW START HIDDEN NOT NULL 
         CONSTRAINT DF_Person_ValidFrom DEFAULT SYSUTCDATETIME(),
-    ValidTo DATETIME2 GENERATED ALWAYS AS ROW END HIDDEN NOT NULL
-        CONSTRAINT DF_Person_ValidTo DEFAULT CONVERT(DATETIME2, '9999-12-31 23:59:59.9999999');
+    ValidTo DATETIME2 GENERATED ALWAYS AS ROW END HIDDEN NOT NULL 
+        CONSTRAINT DF_Person_ValidTo DEFAULT CONVERT(DATETIME2, '9999-12-31 23:59:59.9999999'),
+    PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo);
 GO
 
 -- เพิ่มคอลัมน์เสร็จสมบูรณ์
-GO
 
 -- ขั้นตอนที่ 2: กำหนด PERIOD FOR SYSTEM_TIME
 -- ขั้นตอนที่ 2: กำหนด PERIOD FOR SYSTEM_TIME
-
-ALTER TABLE Person.Person
-ADD PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo);
-GO
 
 -- กำหนด PERIOD เสร็จสมบูรณ์
 GO
@@ -66,7 +63,7 @@ GO
 -- ขั้นตอนที่ 3: เปิดใช้งาน SYSTEM_VERSIONING
 -- ขั้นตอนที่ 3: เปิดใช้งาน SYSTEM_VERSIONING
 -- History Table จะถูกสร้างอัตโนมัติ
-
+ 
 ALTER TABLE Person.Person
 SET (SYSTEM_VERSIONING = ON (
     HISTORY_TABLE = Person.PersonHistory,
