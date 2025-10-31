@@ -32,6 +32,12 @@
 - Nonclustered Indexes
 - Covering Indexes และ INCLUDE
 
+### 05-table-structure-types.sql
+- HEAP Table (ไม่มี Clustered Index)
+- Rowstore Clustered Index
+- Columnstore Clustered Index
+- เปรียบเทียบและ Use Cases
+
 ## 🔧 Best Practices
 
 ### Naming Conventions
@@ -57,6 +63,11 @@
 ✅ Nonclustered Indexes สำหรับ Query Patterns
 ✅ Covering Indexes เมื่อเหมาะสม
 ✅ Monitor และ Tune เป็นประจำ
+
+### Table Structure Types
+✅ Rowstore Clustered Index: Default Choice สำหรับ OLTP
+✅ Columnstore Clustered Index: สำหรับ Analytics/Data Warehouse
+❌ HEAP Table: ไม่แนะนำ (ยกเว้น Staging/Temporary)
 
 ## 🔗 ลิงก์อ้างอิง
 
